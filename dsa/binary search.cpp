@@ -1,3 +1,4 @@
+// binary search apporoach with time complexity O(log n);
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
