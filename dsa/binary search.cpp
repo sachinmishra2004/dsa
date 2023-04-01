@@ -20,3 +20,26 @@ public:
         return -1;
     }
 };
+
+using recursive apporaoch
+class Solution {
+public:
+    int slove(vector<int>& nums,int s, int e, int target){
+        if(s>e)
+        return -1;
+        int mid = s+(e-s)/2;
+        if(nums[mid]== target)
+        return mid;
+        else if(nums[mid]< target){
+            return slove(nums, mid+1, e, target);
+        }
+        else if(nums[mid]> target){
+           return  slove(nums, s, mid-1, target);
+        }
+        return -1;
+    }
+    int search(vector<int>& nums, int target) {
+     int n = nums.size();
+     return slove(nums, 0, n-1, target);
+    }
+};
