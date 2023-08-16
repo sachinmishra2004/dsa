@@ -1,0 +1,40 @@
+//using binary serach 
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int n = letters.size();
+
+        int pos = -1;
+        int l =0;
+        int r = n-1;
+        int mid;
+        while(l<=r){
+            mid = l+(r-l)/2;
+            if(letters[mid] > target){
+                pos = mid;
+                r = mid-1;
+            }
+            else{
+                l = mid+1;
+            }
+        }
+        if(pos == -1)
+            return letters[0]; // it is mention in question
+        return letters[pos];
+    }
+};
+//this upper bound find to help the first smallest -ve elemets , where from , non-incersing order,  for index;
+          int idx = upper_bound(begin(row), end(row) , 0, greater<int>()) - begin(row);
+
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int n = letters.size();
+        int idx = upper_bound(begin(letters), end(letters), target) -begin (letters); //to find out the just greater elements;
+        if(idx == n){
+            return letters[0];
+        }
+        return letters[idx];
+        
+    }
+};
