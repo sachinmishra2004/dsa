@@ -1,0 +1,12 @@
+ string revStr(string str) {
+        // code here
+        int start = 0;
+        int end =  str.size()-1;
+        while(start < end){
+            char st = str[start];
+            str[start] = str[end];
+            str[end] = st;
+            start++;
+            end--;
+        }
+        return str;
